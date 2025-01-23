@@ -1,0 +1,36 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  SRC_DIR: src
+  OUT_DIR: docs
+  TARGET_FILE: solar.wasm
+
+tasks:
+  default:
+    desc: Lists available tasks
+    cmds:
+      - task --list-all
+    silent: true
+  updateDependencies:
+    desc: Updates Go dependencies
+    cmds:
+      - go get -u ./...
+    silent: true
+  build:
+    desc: Builds the wasm component with TinyGo
+    cmds:
+      - tinygo build -o {{.OUT_DIR}}/{{.TARGET_FILE}} -no-debug -target wasm ./{{.SRC_DIR}}/.
+    silent: true
+  updateWasmExec:
+    desc: Updates the wasm_exec.js file
+    cmds:
+      - cp $(tinygo env TINYGOROOT)/targets/wasm_exec.js ./{{.OUT_DIR}}/wasm_exec_tiny.js
+    silent: true
+  run:
+    desc: Builds and runs the project
+    cmds:
+      - task: build
+      - http-server ./{{.OUT_DIR}}/ -p 9000 -o -c-1
+    silent: true

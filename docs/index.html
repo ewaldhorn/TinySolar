@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="wasm_exec_tiny.js"></script>
+    <title>TinyGo and Wasm Solar Implementation</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 id="title">TinyGo and Wasm - Solar</h1>
+    <div id="loading">Loading ...</div>
+    <div id="tinyCanvasDiv"></div>
+    <footer>
+      <p>
+        Based on
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations"
+          >the Mozilla example</a
+        >.
+      </p>
+      <p>
+        Sources at
+        <a href="https://github.com/ewaldhorn/TinySolar"
+          >https://github.com/ewaldhorn/TinySolar</a
+        >
+      </p>
+      <p>
+        You can see some of my other toys
+        <a href="https://nofuss.co.za/toys/">here</a>.
+      </p>
+    </footer>
+    <script type="module" defer>
+      "use strict";
+
+      const go = new Go(); // Defined in wasm_exec.js
+      const WASM_URL = "solar.wasm";
+
+      let wasm, exports, memory;
+
+      let updateFunction = () => {
+        refreshEffect();
+        requestAnimationFrame(updateFunction);
+      };
+
+      // ----------------------------------------------------------------------
+      go.importObject.env = {
+        bootstrapApp: function () {
+          document.getElementById("title").innerHTML = getVersion();
+        },
+        startAnimation: function () {
+          updateFunction();
+        },
+      };
+
+      // ----------------------------------------------------------------------
+      const setupHandles = (wasmObject) => {
+        wasm = wasmObject.instance;
+        exports = wasm.exports;
+        memory = exports.memory;
+      };
+
+      // ----------------------------------------------------------------------
+      if ("instantiateStreaming" in WebAssembly) {
+        WebAssembly.instantiateStreaming(fetch(WASM_URL), go.importObject).then(
+          function (wasmObject) {
+            setupHandles(wasmObject);
+            go.run(wasm);
+          },
+        );
+      } else {
+        fetch(WASM_URL)
+          .then((resp) => resp.arrayBuffer())
+          .then((bytes) =>
+            WebAssembly.instantiate(bytes, go.importObject).then(
+              function (wasmObject) {
+                setupHandles(wasmObject);
+                go.run(wasm);
+              },
+            ),
+          );
+      }
+    </script>
+  </body>
+</html>
