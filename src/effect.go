@@ -49,7 +49,7 @@ func render() {
 	// earth orbit
 	graphicsContext.Restore()
 	graphicsContext.BeginPath()
-	graphicsContext.Arc(150, 150, 105, 0, fullCircle)
+	graphicsContext.Arc(150, 150, 105, 0, fullCircle, false)
 	graphicsContext.Stroke()
 
 	// finally, the sun
