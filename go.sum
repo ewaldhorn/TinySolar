@@ -4,6 +4,8 @@ github.com/ewaldhorn/dommie v0.0.0-20250121154316-3a7b19c01a0b h1:1b+FchPOvpPeqR
 github.com/ewaldhorn/dommie v0.0.0-20250121154316-3a7b19c01a0b/go.mod h1:RH9yYkf323WiGbIT5PendwUTfECmXm1qdqDx0Um8vCY=
 github.com/ewaldhorn/dommie v0.0.2 h1:toOc6jbOOcxF11q64cqtQWtIUDPca75WMH/z8uKM+lk=
 github.com/ewaldhorn/dommie v0.0.2/go.mod h1:RH9yYkf323WiGbIT5PendwUTfECmXm1qdqDx0Um8vCY=
+github.com/ewaldhorn/dommie v0.0.4 h1:cwk/d4YI8EvMb8HYWKP3SUvMaNC0xf6NijfyabEdNjM=
+github.com/ewaldhorn/dommie v0.0.4/go.mod h1:VaiFyEmQCeqofvW7PAMZSEQP6rSeoopoTyw4tUCZzVs=
 github.com/ewaldhorn/tinycanvas v0.0.4 h1:fSKsD6b75KfXWQY2O6hQVE3rvfl0n6BGQ4FE7+U6Bjk=
 github.com/ewaldhorn/tinycanvas v0.0.4/go.mod h1:46jCgXnid/7/gARIA/15VKNsOj/efj7UdL29gaPPYkY=
 github.com/ewaldhorn/tinycanvas v0.0.5 h1:5qCDkQ/dG6wi0vWx28NFvH7pBFYVSERj6QHVjkfrU0o=
@@ -14,3 +16,5 @@ github.com/ewaldhorn/tinycanvas v0.0.7 h1:738daPkacBO88MJtbkflJkXVlY5FN3Kxr1rUv1
 github.com/ewaldhorn/tinycanvas v0.0.7/go.mod h1:46jCgXnid/7/gARIA/15VKNsOj/efj7UdL29gaPPYkY=
 github.com/ewaldhorn/tinycanvas v0.0.8 h1:o56n6N3kYeitPCO31aVBbR5yU0SlWaEs4BEeurfKaBU=
 github.com/ewaldhorn/tinycanvas v0.0.8/go.mod h1:46jCgXnid/7/gARIA/15VKNsOj/efj7UdL29gaPPYkY=
+github.com/ewaldhorn/tinycanvas v0.0.12 h1:hlZoDCOJKEnbAdK+KsB/TH43IL1KImtQ+fi951SMcOU=
+github.com/ewaldhorn/tinycanvas v0.0.12/go.mod h1:OZF4+D9WIDsYxh90DRUP43LeA+O5fwzhFFDwJyCmnDI=

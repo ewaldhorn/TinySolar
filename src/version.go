@@ -3,7 +3,7 @@ package main
 import "syscall/js"
 
 // ----------------------------------------------------------------------------
-const VERSION = "0.0.1b"
+const VERSION = "0.0.1c"
 const NAME = "TinySolar"
 
 // ----------------------------------------------------------------------------
@@ -13,7 +13,7 @@ func getVersionString() string {
 
 // ----------------------------------------------------------------------------
 func setVersionCallback() {
-	js.Global().Set("getVersion", js.FuncOf(func(this js.Value, args []js.Value) interface{} {
+	js.Global().Set("getVersion", js.FuncOf(func(this js.Value, args []js.Value) any {
 		return getVersionString()
 	}))
 }
